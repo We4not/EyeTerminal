@@ -15,8 +15,8 @@ All commands: <br>
 
 # How to build
 Python isn't a compilible launguage, but you can build to exe with pyinstaller<br>
-To build executable file, you can just click on *build.sh* <br>
-The file *main.py* must be builded to executable file <br>
+To build executable file, you can just click on ***build.sh*** <br>
+The file ***main.py*** must be builded to executable file and must be exist on the folder dist <br>
 
 # FAQ
 1) <br>
