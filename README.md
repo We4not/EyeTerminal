@@ -13,15 +13,12 @@ All commands: <br>
   exit - exit from program <br>
   clear - clear all from terminal <br>
 
+# How to build
+Python isn't a compilible launguage, but you can build to exe with pyinstaller<br>
+To build executable file, you can just click on *build.sh* <br>
+The file *main.py* must be builded to executable file <br>
+
 # FAQ
 1) <br>
 A: Program is not working, why? <br>
 B: If you don't have a python, you can't start the program. <br>
-
-2) <br>
-A: Can i post copy EyeTerminal? <br>
-B: Yes! You can also use for public and you don't need pay a money or something. <br>
-
-3) <br>
-A: Moddification is support? <br>
-B: No, i'm planning create a system mod (plugin), but i don't know how to do this. But you can get source code, and change this. <br>
