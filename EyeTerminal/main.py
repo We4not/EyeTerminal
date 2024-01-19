@@ -35,6 +35,11 @@ while running:
         Commands.Clear()
     elif user == "about":
         Commands.About()
+    elif user == "readfile":
+        file = input("File: ")
+        Commands.ReadFile(file)
+    elif user == "python":
+        Commands.OpenPython()
     else:
         print(f"{user} Command not found.")
 
