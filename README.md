@@ -12,6 +12,9 @@ All commands: <br>
   help - view all commands <br>
   exit - exit from program <br>
   clear - clear all from terminal <br>
+  about - show description about EyeTerminal <br>
+  readfile - reading a file and show all text in the file <br>
+  python - openning a python interpreter with not arguments <br>
 
 # How to build
 Python isn't a compilible launguage, but you can build to exe with pyinstaller<br>
