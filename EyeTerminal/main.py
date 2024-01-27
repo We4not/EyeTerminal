@@ -1,35 +1,20 @@
-from commands import *
-from colorama import Fore
-from colorama import init
-init()
+from commands import * # importing a commands.py
+from pluginmanager import * # importing a pluginmanager.py
 
-picture = [ ["⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⡀⠄⠄⢀⣀⠄⠄⠄⠄⠄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⣠⣄⠄⠄⠈⣿⡇⠄⠄⢸⣿⠁⠄⠄⣠⣄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠙⣿⣆⠄⠄⢻⣿⠄⠄⣿⡟⠄⠄⣰⣿⠋⠄⠄⠄⠄"],
-            ["⠻⣷⣄⠄⠄⠙⠟⠄⢀⣀⣁⣠⣄⣈⣀⡀⠄⠻⠋⠄⠄⣠⣾⠟"],
-            ["⠄⠈⠻⠷⠄⣠⣴⠾⠟⠛⢻⣿⣿⣿⣿⡿⠷⣦⣄⠄⠾⠟⠁⠄"],
-            ["⠄⠄⢀⣴⡾⠛⠁⠄⣤⣤⣾⣿⣿⣿⣿⣿⠄⠈⠛⢷⣦⡀⠄⠄"],
-            ["⠄⠄⢾⣯⡀⠄⠄⠄⠻⣿⣿⣿⣿⣿⣿⠟⠄⠄⠄⢀⣽⡷⠄⠄"],
-            ["⠄⠄⠄⠙⢿⣦⡀⠄⠄⠈⠻⠿⠿⠟⠁⠄⠄⢀⣴⡿⠋⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠄⠈⠛⠷⣶⣤⣤⣀⣀⣤⣤⣶⠾⠛⠁⠄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠉⠉⠉⠉⠉⠄⠄⠄⠄⠄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄"],
-            ["⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄"], ]
-
-for i in range(len(picture)):
-    for j in range(len(picture[i])):
-        print(Fore.GREEN + picture[i][j], end=' ')
-    print()
-
-print(Fore.RESET + "Welcome to EyeTerminal")
-
+print(config["PROGRAM"]["LOGIN"] + ", welcome to EyeTerminal")
+if recordlog == True: # if record log is True
+    logging.info(config["PROGRAM"]["LOGIN"] + ", welcome to EyeTerminal") # writting in log file
 running = True
 while running:
     user = input(" $ ")
+    if recordlog == True: # if record log is True
+        logging.info(config["PROGRAM"]["LOGIN"] + f": {user}") # writting in log file
     if user == "help":
         Commands.Help()
     elif user == "exit":
+        if config["EXIT"]["QUESTION"] == "True": # if in config.cfg in sector [EXIT] and finally in QUESTION is True
+            print("Press any key...")
+            msvcrt.getch()
         running = False
     elif user == "clear":
         Commands.Clear()
@@ -40,7 +25,22 @@ while running:
         Commands.ReadFile(file)
     elif user == "python":
         Commands.OpenPython()
+    elif user == "ls":
+        Commands.ShowAllFiles()
+    elif user == "pip install":
+        modulename = input("ModuleName: ") # get a module name from input user
+        Commands.InstallModulePip(modulename) # installing a module which user writted
+    elif user == "version":
+        Commands.Version()
+    elif user == "shutdown":
+        Commands.ShutDown() # WARNING! This function it can really shutdown the pc, don't try if you don't save project
+    elif user == "logtest":
+        Commands.TestLog()
+    elif user == "connect":
+        address = input("IP: ")
+        port = int(input("PORT: "))
+        Commands.Connect(address, port)
     else:
-        print(f"{user} Command not found.")
-
-exit()
+        print(Fore.RED + f"{user} Command not found." + Fore.RESET) # if user writted wrong command, then show this text in color red
+        if recordlog == True: # if record log is True
+            logging.error(f"EyeTerminal: {user} Command not found") # and writting in log file
