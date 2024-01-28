@@ -15,6 +15,11 @@ All commands: <br>
   about - show description about EyeTerminal <br>
   readfile - reading a file and show all text in the file <br>
   python - openning a python interpreter with not arguments <br>
+  ls - show files in folder (not finished) <br>
+  pip install - install a python module <br>
+  connect - connect in a server <br>
+  logtest - writting test in log file <br>
+  version - show a version EyeTerminal <br>
 
 # How to build
 Python isn't a compilible launguage, but you can build to exe with pyinstaller<br>
