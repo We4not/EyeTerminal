@@ -27,10 +27,10 @@ To build executable file, you can just click on ***build.sh*** <br>
 The file ***main.py*** must be builded to executable file and must be exist on the folder dist <br>
 
 # FAQ
-1) <br>
+(1) <br>
 A: Program is not working, why? <br>
 B: If you don't have a python, you can't start the program. <br>
 <br>
-2) <br>
+(2) <br>
 A: No module founded 'msvcrt' <br>
 B: That problem is fixing. It's maybe because if your system is linux, then python doesn't founded a module msvcrt <br>
