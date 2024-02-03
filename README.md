@@ -12,16 +12,16 @@ All commands: <br>
   exit - exit from program <br>
   clear - clear all from terminal <br>
   about - show description about EyeTerminal <br>
-  readfile <file> - reading a file and show all text in the file <br>
-  python <argument> - openning a python interpreter with not arguments <br>
+  readfile [file] - reading a file and show all text in the file <br>
+  python [argument] - openning a python interpreter with not arguments <br>
   ls - show files in folder (not finished) <br>
-  pip <argument> - calling pip with argument <br>
+  pip [argument] - calling pip with argument <br>
   connect - connect in a server <br>
   logtest - writting test in log file <br>
   version - show a version EyeTerminal <br>
-  start <file> - starting the file (In commands of list in EyeTerminal has mistake. It can be fixed in v1.1 fix 1) <br>
-  touch <namefile> - create a file <br>
-  echo <text> - print text in screen <br>
+  start [file] - starting the file (In commands of list in EyeTerminal has mistake. It can be fixed in v1.1 fix 1) <br>
+  touch [namefile] - create a file <br>
+  echo [text] - print text in screen <br>
   system - get system name
   
 # How to build
