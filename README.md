@@ -19,7 +19,7 @@ All commands: <br>
   connect - connect in a server <br>
   logtest - writting test in log file <br>
   version - show a version EyeTerminal <br>
-  start [file] - starting the file (In commands of list in EyeTerminal has mistake. It can be fixed in v1.1 fix 1) <br>
+  start [file] - starting the file (In commands of list in EyeTerminal has mistake. It can be fixed in v1.1.1) <br>
   touch [namefile] - create a file <br>
   echo [text] - print text in screen <br>
   system - get system name
