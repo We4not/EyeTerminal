@@ -1,7 +1,7 @@
 mkdir installmodules-log
 
-pip3 install colorama >> log.txt
-pip3 install psutil >> log.txt
-pip3 install logging >> log.txt
-pip3 install configparser >> log.txt
-pip3 install datetime >> log.txt
+pip3 install colorama >> installmodules-log/log.txt
+pip3 install psutil >> installmodules-log/log.txt
+pip3 install logging >> installmodules-log/log.txt
+pip3 install configparser >> installmodules-log/log.txt
+pip3 install datetime >> installmodules-log/log.txt
