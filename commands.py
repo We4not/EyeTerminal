@@ -7,7 +7,8 @@ import socket # importing for connecting a server
 import psutil # get info about computer
 from colorama import Fore
 from colorama import init
-init()
+from package import *
+init() # colorama init
 
 system = platform.system()
 
@@ -27,16 +28,17 @@ if config["DEBUG"]["LOG"] == "True": # checking a parameter in config.cfg
     else: # if folder exists
         logging.basicConfig(level=logging.DEBUG, filename=datetime.datetime.now().strftime(r'log\\log_%H-%M-%S-%d-%m-%Y.log'), format="DATE: %(asctime)s %(levelname)s: %(message)s") # creating a log file and format
         recordlog = True # turn on a record log
+
 class Commands:
     def Help(): # showing a list of commands
         print("\nhelp - view all commands\texit - exit from program\t\tclear - clear all from terminal\nabout - description program\treadfile <file> - read a file\t\tpython <argument> - open a python interpreter\nls - show files in folder\tpip <argument> - calling pip\t\tversion - show a version EyeTerminal\nlogtest - test a log\t\tconnect - connect in a server\t\tstart <file> - starting the program\nsystem - get system name\techo <text> - print text in screen\ttouch <namefile> - creating a file\nlogin - get a login\t\tchange-login <newlogin>\n")
+    
     def Clear(): # clear all from screen
-        if system == "Windows": # if system is windows then cls
-            os.system('cls')
-        else: # if system is linux or MacOS then clear
-            os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear') # cross-platform clear all from screen
+    
     def About(): # description about EyeTerminal
         print("EyeTerminal - a console program, created just for fun.\nEyeTerminal has a open source code on github, and support platforms\n Windows\n Linux\n MacOS\n")
+    
     def TestLog(): # writting in a log file
         if recordlog == True:
             logging.debug("A DEBUG Message")
@@ -46,6 +48,7 @@ class Commands:
             logging.critical("A message of CRITICAL severity")
         elif recordlog == False:
             print(Fore.RED + "Error! Parameter LOG in config.cfg is " + config["DEBUG"]["LOG"] + Fore.RESET)
+    
     def ReadFile(file): # reading a file, writted by user
         if os.path.exists(file):
             fileuser = open(file, 'r')
@@ -56,10 +59,12 @@ class Commands:
             print(Fore.RED + "Error! File doesn't exists" + Fore.RESET) # if EyeTerminal can't find a file, writted by user, then we show error for user
             if recordlog == True:
                 logging.error("Error! File doesn't exists")
+    
     def Python(argument):
         os.system(f'python {argument}') # start a python interpreter if argument is not specified
         if recordlog == True:
             logging.debug(f"EyeTerminal: python {argument}")
+    
     def CreateFile(file): # creating a file
         if os.path.exists(file) == True:
             getpermissionfromuser = input(Fore.YELLOW + "The file is already created" + Fore.RESET + "\nDo you want create again? y/n: ")
@@ -68,23 +73,27 @@ class Commands:
                 open(file, 'x')
         else:
             open(file, 'x')
+    
     def ChangeLogin(newlogin): # change old login to new
         config.set('PROGRAM', 'LOGIN', newlogin)
         if recordlog == True:
             logging.info(f"EyeTerminal: Changing old login to {newlogin}....")
         with open('config.cfg', 'w') as configfile:
             config.write(configfile)
+    
     def GetLogin(): # get a login from config.cfg
         if recordlog == True:
             logging.info(config["PROGRAM"]["LOGIN"])
         print(config["PROGRAM"]["LOGIN"])
+    
     def Delete(path, dir=False): # deleting a file or dir
         if dir == True:
             os.rmdir(path)
         else:
             os.remove(path)
+    
     def GetSystem(): # get a name system
-        if system == "Windows":
+        if os.name == 'nt':
             picture = [ [Fore.LIGHTCYAN_EX + "                            .oodMMMM"],
                         ["                   .oodMMMMMMMMMMMMM"],
                         ["       ..oodMMM  MMMMMMMMMMMMMMMMMMM"],
@@ -103,7 +112,7 @@ class Commands:
                         [" `^^^^^^MMMMMMM  MMMMMMMMMMMMMMMMMMM"],
                         ["       ````^^^^  ^^MMMMMMMMMMMMMMMMM"],
                         ["                      ````^^^^^^MMMM"], ]
-        if system == "Linux":
+        if os.name == 'linux':
             picture = [ ["                          .88888888:."],
                         ["                         88888888.88888."],
                         ["                       .8888888888888888."],
@@ -130,7 +139,7 @@ class Commands:
                         ["          :::::::::::::::88:.__..:88888:::::::::::'"],
                         ["           `'.:::::::::::88888888888.88:::::::::'"],
                         ["                  `':::_:' -- '' -'-' `':_::::'`"] ]
-        if system == "Darwin":
+        if os.name == 'darwin':
             picture = [ [Fore.LIGHTGREEN_EX + "                                   .8"],
                         ["                                 .888"],
                         ["                               .8888'"],
@@ -163,27 +172,33 @@ class Commands:
         print(Fore.RESET + f"System: {system}\nCPU Name: {platform.processor()}\nCPU Cores: {psutil.cpu_count(logical=True)}\n")
         if recordlog == True:
             logging.info(f"System: {system}\nCPU Name: {platform.processor()}\nCPU Cores: {psutil.cpu_count(logical=True)}\n")
+    
     def ShowAllFiles(): # showing all files in directory
         os.system('dir')
         if recordlog == True:
             logging.debug("EyeTerminal: calling a command >> dir")
+    
     def Pip(argument):
         os.system(f'pip {argument}')
         if recordlog == True:
             logging.debug(f"EyeTerminal: pip {argument}")
+    
     def Version(): # show a version
-        print("EyeTerminal v1.2")
+        print("EyeTerminal v1.3")
         if recordlog == True:
-            logging.info("EyeTerminal: EyeTerminal v1.2")
+            logging.info("EyeTerminal: EyeTerminal v1.3")
+    
     def Connect(address, port):
         print("WARNING! In server, log doesn't writting!")
         if recordlog == True:
             logging.warning("In server, log doesn't writting!")
         s.connect((address, port))
+        s.sendall(input("message > "))
         data = s.recv(1024)
-        s.close()
+    
     def StartProgram(pathfile):
         os.system(f'{pathfile}')
+    
     def ShutDown(): # WARNING! Don't try call this function if you don't save a project, because he can really shutdown the computer (PC)
         if recordlog == True:
             logging.debug("EyeTerminal: calling a command >> shutdown /s /t 0")
