@@ -1,5 +1,5 @@
 # EyeTerminal
-![icon](https://github.com/We4not/EyeTerminal/assets/150752474/74c7d187-6729-4842-9fa6-a167a3692c62) <br>
+![icon](https://github.com/We4not/EyeTerminal/blob/main/icon.png?raw=true) <br>
 EyeTerminal - a console program, created just for fun. <br>
 EyeTerminal has support platforms: <br>
 Windows  Linux  MacOS <br>
