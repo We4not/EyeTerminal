@@ -54,8 +54,6 @@ while running:
                 logging.error("Error! Argument <file> is not specified")
         else:
             Commands.CreateFile(user[6:len(user)])
-    elif user == "shutdown":
-        Commands.ShutDown() # WARNING! This function it can really shutdown the pc, don't try if you don't save project
     elif user == "logtest":
         Commands.TestLog()
     elif user == "connect": # connecting in server
