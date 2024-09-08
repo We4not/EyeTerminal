@@ -1,4 +1,7 @@
 from commands import * # importing a commands.py
+from package import * # importing a package.py
+
+package = Package()
 
 print(config["PROGRAM"]["LOGIN"] + ", welcome to EyeTerminal")
 if recordlog == True: # if record log is True
@@ -66,7 +69,10 @@ while running:
                 logging.error("Error! Argument <pathfile> is not specified")
         else:
             Commands.StartProgram(user[6:len(user)])
+    elif user in package.listofPackages:
+        package.run(user)
     else:
         print(Fore.RED + f"{user} Command not found." + Fore.RESET) # if user writted wrong command, then show this text in color red
         if recordlog == True: # if record log is True
             logging.error(f"{user} Command not found") # and writting in log file
+    package.updateListOfPackages()
