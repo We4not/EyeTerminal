@@ -8,21 +8,23 @@ ATTENTION: <br>
 
 # How to use?
 All commands: <br>
-  help - view all commands <br>
-  exit - exit from program <br>
-  clear - clear all from terminal <br>
-  about - show description about EyeTerminal <br>
-  readfile [file] - reading a file and show all text in the file <br>
-  python [argument] - openning a python interpreter with not arguments <br>
-  ls - show files in folder (not finished) <br>
-  pip [argument] - calling pip with argument <br>
-  connect - connect in a server <br>
-  logtest - writting test in log file <br>
-  version - show a version EyeTerminal <br>
-  start [file] - starting the file (In commands of list in EyeTerminal has mistake. It can be fixed in v1.1.1) <br>
-  touch [namefile] - create a file <br>
-  echo [text] - print text in screen <br>
-  system - get system name
+  `help` - view all commands <br>
+  `exit` - exit from program <br>
+  `clear` - clear all from terminal <br>
+  `about` - show description about EyeTerminal <br>
+  `readfile [file]` - reading a file and show all text in the file <br>
+  `python [argument]` - openning a python interpreter with not arguments <br>
+  `ls` - show files in folder (not finished) <br>
+  `pip` [argument] - calling pip with argument <br>
+  `connect` - connect in a server <br>
+  `logtest` - writting test in log file <br>
+  `version` - show a version EyeTerminal <br>
+  `start [file]` - starting the file <br>
+  `touch [namefile]` - create a file <br>
+  `echo [text]` - print text in screen <br>
+  `system` - get system name <br>
+  `login` - get a login <br>
+  `[packagename]` - run a package <br>
   
 # How to build
 Python isn't a compilible launguage, but you can build to executable file with pyinstaller<br>
