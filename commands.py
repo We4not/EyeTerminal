@@ -198,10 +198,3 @@ class Commands:
     
     def StartProgram(pathfile):
         os.system(f'{pathfile}')
-    
-    def ShutDown(): # WARNING! Don't try call this function if you don't save a project, because he can really shutdown the computer (PC)
-        if recordlog == True:
-            logging.debug("EyeTerminal: calling a command >> shutdown /s /t 0")
-            logging.debug("EyeTerminal: crashing a EyeTerminal...")
-        os.system('shutdown /s /t 0') # shutting down the computer (PC)
-        exit()
