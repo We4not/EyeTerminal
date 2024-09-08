@@ -25,11 +25,27 @@ All commands: <br>
   system - get system name
   
 # How to build
-Python isn't a compilible launguage, but you can build to exe with pyinstaller<br>
-To build a file executable, if your system is linux, start the file ***linux.sh***, if your system is windows, start the file ***windows.bat*** <br>
-The file ***main.py*** must be builded to executable file and must be exist on the folder dist <br>
+Python isn't a compilible launguage, but you can build to executable file with pyinstaller<br>
+To build, you need to write this command:
+```
+pyinstaller main.py --name EyeTerminal --icon icon.png
+```
+The `--name` argument is the name of the program <br>
+The `--icon` argument is the program icon <br>
 
-# FAQ
-(1) <br>
-A: Program is not working, why? <br>
-B: If you don't have a python, you can't start the program. <br>
+After this command, you should have a dist folder, in which the EyeTerminal folder is located, and finally our executable file:
+- dist
+  - EyeTerminal
+    - EyeTerminal
+
+But there is one problem, we cannot run the program because we are missing the package folder and the config.cfg file
+
+Create a package folder and then create a config.cfg file in which we will write all the parameters:
+```
+[PROGRAM]
+LOGIN = user
+
+[DEBUG]
+LOG = True
+```
+After this it should work
