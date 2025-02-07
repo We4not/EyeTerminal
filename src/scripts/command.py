@@ -1,9 +1,7 @@
 import os
 import sys
-import configparser
 import colorama
 from colorama import Fore
-from importlib import import_module
 from scripts.user import User
 from scripts.packageloader import PackageLoader
 from scripts.config import Config
