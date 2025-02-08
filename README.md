@@ -88,4 +88,4 @@ However as a string it won't work
 ```
 ['"Hello', 'world"']
 ```
-It is important to note that args MUST be inserted, otherwise there will be errors
+It is important to note that `args` MUST be inserted, otherwise there will be errors
