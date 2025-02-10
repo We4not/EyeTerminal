@@ -10,13 +10,12 @@ EyeTerminal - a console program, created just for fun.
 - `calc [NUM1] [OPERATOR] [NUM2]` - calculator
 
 ## How to build
-Usually after changing the source code, this question arises. Let's try to build it.
+Before we start building, we need to install the pip packages
+```
+ $ pip3 install auto-py-to-exe colorama configparser climage
+```
 
-To do this you need to install the auto-py-to-exe package
-```
-pip3 install auto-py-to-exe
-```
-Next we need to open using this command
+We need to use the command `auto-py-to-exe`
 ```
 auto-py-to-exe
 ```
