@@ -9,13 +9,6 @@ EyeTerminal - a console program, created just for fun.
 ### Default package
 - `calc [NUM1] [OPERATOR] [NUM2]` - calculator
 
-## Update list
-|Version|  Description  |
-|-------|---------------|
-| v1.0b | First version |
-| v1.0  |     N/A       |
--------------------------
-
 ## How to build
 Usually after changing the source code, this question arises. Let's try to build it.
 
