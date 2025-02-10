@@ -26,10 +26,6 @@ class Command:
         self.packageloader = PackageLoader(self)
         self.packageloader.LoadPackages()
 
-        # for package in os.listdir("./packages/"):
-        #     package_imported = import_module(f"packages.{package}.core")
-        #     self.RegisterNewCommand(package, package_imported.main)
-
     def __clear_console(self, args):
         os.system('cls' if sys.platform == 'win32' else 'clear')
     
@@ -42,16 +38,12 @@ class Command:
     def RegisterNewCommand(self, text, command_func):
         self.command[text] = command_func
 
-    # def __ls_command(self, args):
-    #     print(os.listdir(self.user.GetWorkingPathDir()))
-
-
     def HandleUserInput(self):
         args = self.user.input_text.split()
         if args[0] in self.command:
             if len(args) > 1:
-                self.command[args[0]](args[1:None])
+                code = self.command[args[0]](args[1:None])
             else:
-                self.command[args[0]](None)
+                code = self.command[args[0]](None)
         else:
             print(f"{Fore.RED}{self.config.GetTitle_Value()}: {Fore.RESET}{args[0]}{Fore.RED}: command not found{Fore.RESET}")
